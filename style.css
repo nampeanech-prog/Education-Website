@@ -1,0 +1,571 @@
+body {
+  font-family: Arial, sans-serif;
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6; /* Improved readability */
+}
+.center-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 2rem;
+}
+/* Header Styles */
+header {
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for header */
+  padding: 15px 40px; /* Adjusted padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Clearer shadow for header */
+  color: rgb(30, 29, 29); /* Header text color */
+  position: sticky; /* Make header stick to top */
+  top: 0;
+  z-index: 1000; /* Ensure header is above other content */
+}
+
+
+header h1 {
+  margin: 0;
+  color: #007bff; /* Consistent blue for university name */
+  font-family: Arial, sans-serif; /* Or a specific font for branding */
+  text-decoration: none; /* Remove underline from h1 if inherited */
+}
+
+.form{
+  background-color:aqua;
+  text-align: center;
+}
+
+/* Other General Typography/Elements */
+h2 {
+  font-family: 'Khmer OS', 'Khmer OS Battambang', 'Khmer OS Siemreap', 'Arial Unicode MS', sans-serif;
+  font-style: normal; /* Remove italic unless specifically desired */
+  color: #333; /* Default H2 color */
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+h3{
+  text-align: center;
+  justify-content: flex-end;
+}
+p {
+  text-align: center; /* Keep paragraphs centered if desired */
+  font-size: 1rem;
+  color: #444; /* Slightly darker than default body text */
+}
+
+/* Navigation Styles */
+.main-nav {
+  display: flex;
+  gap: 25px;/* Increased space between nav items */
+}
+.main-nav a {
+  color: #555; /* Darker grey for links */
+  font-family: Arial, sans-serif; /* Standard font for nav links */
+  font-size: 1.05rem; /* Slightly larger */
+  text-decoration: none;
+  padding: 8px 12px; /* Padding for click area */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+.main-nav a:hover {
+    background-color: #e9ecef; /* Light grey hover background */
+    color: #007bff; /* Blue text on hover */
+}
+.date-row{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+label {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+input, select {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 1rem;  
+}
+
+#ASD{
+  width: 100%;
+  padding: 5px;
+}
+
+.container {
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+input[type="text"],input[type="email"],input[type="tel"],input[type="date"] {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+.name-group input {
+  flex: 1;
+}
+/* Ensure the root HTML element is also set to 100% height if body is flex */
+html {
+  height: 100%;
+}
+/* Our Courses Page Specific Layout */
+/* This container wraps all the course cards */
+.course-cards-container {
+    display: grid;
+    /* Responsive grid: minimum 300px wide cards, as many as can fit */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Space between cards */
+    padding: 40px; /* Padding around the grid */
+    max-width: 1200px; /* Max width for the card section */
+    margin: 40px auto; /* Center the grid container */
+    justify-content: center; /* Center cards horizontally if they don't fill a row */
+}
+
+/* Individual Premium Card Styles */
+.premium-card {
+    background-color: #ffffff; /* Solid white background for cards */
+    border-radius: 12px; /* Softer rounded corners as per image */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); /* Clearer, softer shadow */
+    padding: 25px; /* Consistent padding inside cards */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Distribute space, pushing footer to bottom */
+    position: relative; /* For the absolute positioning of the badge */
+    overflow: hidden; /* Ensures badge's sharp corner is contained */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth hover effects */
+}
+
+.premium-card:hover {
+    transform: translateY(-8px); /* Lift higher on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+.premium-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px; /* Space below header */
+  font-size: 0.9em; /* Smaller font for header labels */
+  color: #888; /* Softer color for labels */
+}
+
+.course-label {
+    font-weight: normal; /* "Premium course" is not bold in image */
+    color: #666; /* Softer color */
+}
+
+.badge {
+    background-color: #ffc107; /* Yellow as in the image */
+    color: #333; /* Dark text for contrast */
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 0 8px 0 8px; /* Specific rounded corners for the badge */
+    font-size: 0.8em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(0, 0); /* Ensure it's exactly at the corner */
+}
+
+/* Course Title */
+.premium-card h2 {
+    font-family: 'Khmer OS', 'Khmer OS Battambang', 'Khmer OS Siemreap', 'Arial Unicode MS', sans-serif; /* Prioritize Khmer fonts, then fallbacks */
+    color: #333; /* Darker, more standard color than 'brown' */
+    font-style: normal; /* Titles are not italic in the image */
+    font-size: 1.6em; /* Slightly larger title */
+    margin-top: 0; /* Remove default top margin */
+    margin-bottom: 10px; /* Space below title */
+    text-align: left; /* Titles are left-aligned in the image */
+}
+
+/* Course Description */
+.course-description {
+    font-size: 0.95em; /* Slightly smaller description font */
+    color: #666; /* Softer color */
+    margin-bottom: 15px; /* Space below description */
+    line-height: 1.6;
+    text-align: justify; /* Justify text for clean block */
+    min-height: 60px; /* Ensures consistent height for cards with/without desc */
+}
+
+/* Read More Link */
+.toggle-detail {
+    color: #007bff; /* Standard blue link */
+    text-decoration: none;
+    font-weight: bold; /* Bold as in image */
+    font-size: 0.9em;
+    margin-bottom: 20px; /* Space below link */
+    display: inline-block; /* Allows vertical margin */
+    align-self: flex-start; /* Aligns left in flex container */
+    transition: color 0.3s ease;
+}
+
+.toggle-detail:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+/* Info Grid (Subjects, Hours, etc.) */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 12px 10px; /* Vertical and horizontal gap */
+    font-size: 0.9em;
+    color: #555;
+    margin-top: auto; /* Pushes this block to the bottom before footer */
+    padding-top: 15px; /* Padding above the grid */
+    border-top: 1px solid #eee; /* Light separator line */
+}
+
+.info-grid div {
+    display: flex; /* Use flex for icon and text alignment */
+    align-items: center; /* Vertically align icon and text */
+}
+
+.info-grid .icon {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 1.1em; /* Make icons slightly larger */
+    line-height: 1; /* Helps align emojis */
+}
+
+/* Footer Row (Date Info and Button) */
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px; /* Space above footer row */
+    padding-top: 15px; /* Padding above line */
+    border-top: 1px solid #eee; /* Light separator line */
+    font-size: 0.9em;
+}
+
+.date-info {
+    color: #777; /* Softer color for date info */
+}
+
+/* Enroll Button */
+.enroll-btn {
+    background-color: #28a745; /* Green color from image */
+    color: white;
+    padding: 12px 25px; /* More padding for a larger button */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Smooth hover transition */
+}
+
+.enroll-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Enrollment Form specific styles (if this is on the same page or shared CSS) */
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Adjust height for header */
+    padding: 2rem;
+    box-sizing: border-box; /* Include padding in height calculation */
+}
+
+.container {
+    background-image: none  ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgba(255, 255, 255, 0.95); /* Add a fallback color/opacity for the form */
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.form {
+   background-image: none;
+    /* Consider if this class is actually needed or if .container handles styling */
+    /* background-color: aqua; */ /* This is a very strong color, consider if desired */
+    text-align: center; /* Centering for form elements */
+}
+
+label {
+  display: block; /* Ensure labels are on their own line */
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: left; /* Labels should align left above inputs */
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem; /* Space between input groups */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select { /* Apply to select as well */
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%; /* Make them fill the available width */
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box; /* Include padding and border in element's total width/height */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus {
+  border-color: #00c2cb; /* Focus color */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 3px rgba(0, 194, 203, 0.2); /* Subtle focus shadow */
+}
+
+.name-group {
+  display: flex; /* For first name, last name side-by-side */
+  gap: 15px; /* Space between name inputs */
+  margin-bottom: 1rem;
+}
+
+.name-group .input-group {
+  flex: 1; /* Make inputs in name-group take equal space */
+  margin-bottom: 0; /* Remove extra margin if already handled by parent gap */
+}
+
+input[type="submit"] {
+  margin-top: 2rem;
+  padding: 0.9rem;
+  background-color: #00c2cb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem; /* Slightly larger submit button */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0f9e27; /* Green on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.our-uni h1{
+  text-align: center;
+}
+.our-container{
+  color: #0056b3;
+  display: flex;
+  gap: 20px ;
+  padding: 20px;
+  justify-content: center;
+  /*flex-wrap: wrap;*/
+}
+.card{
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 45%;
+  max-width: 500px;
+  box-shadow: 0 2px 4px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.card h3{
+  color: #333;
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+.card p{
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.card pre{
+  background-color: #f8f8f8;
+  border-left: 3px solid #007bff;
+  padding: 15px;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.85em;
+  font-family: 'Consolas','Monaco','Courier New',monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #333;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+.card-old{
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 45%;
+  max-width: 5000px;
+  box-shadow: 0 2px 4px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.card-old p{
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+.bt-container{
+  text-align: center;
+  padding: 20px;
+}
+.clean-button{
+  all: unset;
+  box-sizing: border-box;
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  justify-content: center;
+  display: inline-block;
+  box-shadow: 0 2px 5px;
+}
+/*  Join Style */
+.cv-form{
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  margin: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+label{
+  display: block;
+  margin: 1rem 0 0.3rem;
+  color: #444;
+}
+input,textarea,select{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  font-size: 16px;
+}
+.enroll-button {
+  background-color: #22c55e; /* Green button */
+  color: #fff;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: auto; /* Push button to the bottom */
+}
+.enroll-button:hover {
+  background-color: #16a34a; /* Darker green on hover */
+}
+.video{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px ;
+  padding: 20px;
+}
+.video iframe{
+  max-width: 100%;
+  height: 100;
+  width: 5;
+}
+/* Style the footer */
+footer {
+  background-color: none;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  width: 100%;
+}
+
+footer p{
+ color: white;
+}
+.social-links {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.social-links a {
+  font-size: 40px;
+  margin: 0 15px;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+.social-links a:hover {
+  transform: scale(1.3);
+  opacity: 0.8;
+}
+
+/* Unused/Redundant/Incorrect CSS from your original, consider removing if not needed */
+/* #ASD { width: 100%; padding: 5px; } - this seems specific to an ID, ensure it's needed */
+/* .date-row - was defined but not seen in HTML structure provided, remove if not used */
+/* .form (background-color: aqua;) - this is a strong override, consider if intentional */

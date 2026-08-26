@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jion Us</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="style_join.css">
+</head>
+<body>
+     <header>
+    <h1>REAN CODE</h1>
+    <nav class="main-nav">
+      <a href="Home.html">Home</a>
+      <a href="Our University.html">About Us</a>
+      <a href="Our Courses.html">Our Courses</a>
+      <a href="Enrollment.html">Enrollment</a>
+      <a href="Contact Us.html">Cotact Us</a>
+    </nav>
+  </header>
+  <div class="cv-form-container">
+    <h1>Jion Us</h1>
+    <form>
+      <fieldset>
+        <legend>Personal Information</legend>
+        <label>Full Name:</label>
+        <input type="text" name="fullname" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Phone:</label>
+        <input type="tel" name="phone" required>
+
+        <label>Date of Birth:</label>
+        <input type="date" name="dob">
+
+        <label>Address:</label>
+        <textarea name="address" rows="2"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Education</legend>
+        <label>University / School:</label>
+        <input type="text" name="education">
+
+        <label>Degree:</label>
+        <input type="text" name="degree">
+
+        <label>Graduation Year:</label>
+        <input type="text" name="gradyear">
+      </fieldset>
+
+      <fieldset>
+        <legend>Work Experience</legend>
+        <label>Company Name:</label>
+        <input type="text" name="company">
+
+        <label>Position:</label>
+        <input type="text" name="position">
+
+        <label>Years of Experience:</label>
+        <input type="text" name="experience">
+      </fieldset>
+
+      <fieldset>
+        <legend>Skills</legend>
+        <textarea name="skills" placeholder="List your skills here..." rows="3"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Languages</legend>
+        <input type="text" name="languages" placeholder="e.g., English, Khmer, French">
+      </fieldset>
+
+      <fieldset>
+        <legend>Upload Photo</legend>
+        <input type="file" name="photo" accept="image/*">
+      </fieldset>
+
+      <button type="submit">Submit CV</button>
+    </form>
+  </div>
+</body>
+</html>
