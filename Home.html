@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css ">
+  <!--
+    We're using the Tailwind CSS CDN for styling.
+    This provides utility classes to quickly build a responsive design.
+  -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /*
+      Custom CSS to ensure the hero section takes up the full viewport
+      height and centers its content both horizontally and vertically.
+      This provides a clean, modern look for the search bar.
+    */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom right, #3498db, #8e44ad);
+      color: white;
+      padding: 2rem;
+      font-family: 'Inter', sans-serif;
+    }
+    #results-container {
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 600px;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      color: white;
+    }
+
+    /*
+      Simple animation for the search button
+    */
+    .search-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    footer{
+      position: fixed; bottom: 0; left: 0; width: 100%; background: #333; color: white; text-align: center; padding: 10px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+
+  <header>
+    <h1>REAN CODE</h1>
+    <nav class="main-nav">
+      <a href="Home.html">Home</a>
+      <a href="Our University.html">About Us</a>
+      <a href="Our Courses.html">Our Courses</a>
+      <a href="Enrollment.html">Enrollment</a>
+      <a href="Contact Us.html">Cotact Us</a>
+    </nav>
+    </header>
+
+  <!-- HTML Section: The Hero section and the Search form -->
+  <section class="hero">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Wellcome To our Websites</h1>
+    <p class="text-lg md:text-xl mb-8 opacity-90 text-center max-w-2xl">
+      We are  public websites that Wellcome any students that interested in exploring the field of science, technology, Engineering, and Math cyber security, and programming.
+    </p>
+
+    <!--
+      The form contains the search input and a submit button.
+      The 'onsubmit' attribute calls the handleSearch function in our JavaScript.
+    -->
+    <form id="search-form" class="w-full max-w-md flex items-center bg-white rounded-full shadow-xl overflow-hidden p-2">
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Search for something..."
+        class="flex-grow py-3 px-6 text-gray-800 focus:outline-none focus:ring-0 rounded-full"
+      />
+      <button
+        type="submit"
+        class="search-button bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-transform duration-200 ease-in-out"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </button>
+    </form>
+    
+    <!--
+      This container will be dynamically updated with search results by the JavaScript.
+    -->
+    <!--<div id="results-container" class="mt-8">
+      <h3 class="text-xl font-semibold mb-2">Simulated Search Results</h3>
+      <p class="opacity-75">Your results will appear here after you search.</p>
+    </div>
+  </section>-->
+
+  <!-- JavaScript Section: Logic for search functionality -->
+  <script>
+    // This function will run once the entire page content is loaded.
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // 1. Get references to our HTML elements.
+      const searchForm = document.getElementById('search-form');
+      const searchInput = document.getElementById('search-input');
+      const resultsContainer = document.getElementById('results-container');
+
+      // 2. Define a function to simulate a search and render the results.
+      const handleSearch = (event) => {
+        // Prevent the form from submitting in the traditional way (which would refresh the page).
+        event.preventDefault();
+
+        // Get the value from the search input and trim any extra whitespace.
+        const query = searchInput.value.trim().toLowerCase();
+
+        // Clear previous results from the container.
+        resultsContainer.innerHTML = '';
+
+        // If the query is empty, show a message and stop.
+        if (query === '') {
+          resultsContainer.innerHTML = `
+            <p class="text-red-300">Please enter a search term.</p>
+          `;
+          return;
+        }
+
+        // Simulate a search. In a real-world app, you would make an API call here.
+        // We'll use a simple switch statement to show different results based on the query.
+        let results = [];
+        switch(query) {
+          case 'html':
+            results = [
+              { title: 'Introduction to HTML', snippet: 'A beginner\'s guide to HyperText Markup Language.' },
+              { title: 'HTML Forms Explained', snippet: 'Learn how to create interactive forms with HTML.' }
+            ];
+            break;
+          case 'css':
+            results = [
+              { title: 'Styling with CSS Flexbox', snippet: 'Master the flexible box layout model for modern design.' },
+              { title: 'CSS Grid Layout', snippet: 'Build complex, two-dimensional layouts with CSS Grid.' }
+            ];
+            break;
+          case 'javascript':
+            results = [
+              { title: 'JavaScript Essentials for Beginners', snippet: 'The fundamental concepts of JavaScript, including variables and functions.' },
+              { title: 'Asynchronous JavaScript Explained', snippet: 'Understanding promises and async/await for non-blocking code.' }
+            ];
+            break;
+          default:
+            results = [
+              { title: `No results for "${query}"`, snippet: 'Try searching for "html", "css", or "javascript" to see simulated results.' }
+            ];
+        }
+
+        // 3. Render the results in the results container.
+        results.forEach(result => {
+          const resultElement = document.createElement('div');
+          resultElement.classList.add('p-4', 'bg-white', 'bg-opacity-10', 'rounded-lg', 'mb-2', 'last:mb-0');
+          resultElement.innerHTML = `
+            <h4 class="text-lg font-semibold">${result.title}</h4>
+            <p class="text-sm opacity-80">${result.snippet}</p>
+          `;
+          resultsContainer.appendChild(resultElement);
+        });
+
+        // For demonstration, also add a header to the results container.
+        const header = document.createElement('h3');
+        header.classList.add('text-xl', 'font-semibold', 'mb-4');
+        header.textContent = `Search Results for "${query}"`;
+        resultsContainer.prepend(header);
+      };
+
+      // 4. Attach the event listener to the form.
+      searchForm.addEventListener('submit', handleSearch);
+    });
+
+  </script>
+  <footer class="text-center p-4 bg-gray-800 text-white mt-8">
+    <p>&copy; 2025 Reancode. All rights reserved.</p>
+</body>
+</html>
